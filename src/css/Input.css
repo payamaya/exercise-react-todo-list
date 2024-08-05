@@ -1,0 +1,9 @@
+.input-element {
+  display: flex;
+  border: 2px solid var(--borderColor);
+  margin: 0.2rem;
+  background-color: inherit;
+  border-radius: 4px;
+  padding: 0.4rem;
+  color: var(--textColor);
+}
