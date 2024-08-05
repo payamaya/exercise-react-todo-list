@@ -1,7 +1,7 @@
-import { ReactElement, ReactNode } from 'react'
+import { ReactElement, ReactNode, MouseEventHandler } from 'react'
 
-interface ISpanProps {
-  onClick?: () => void
+interface IButtonProps {
+  onClick?: MouseEventHandler<HTMLButtonElement>
   className: string
   children: ReactNode
   type?: 'submit' | 'button'
@@ -12,7 +12,7 @@ export function Button({
   onClick,
   type = 'button',
   children,
-}: ISpanProps): ReactElement {
+}: IButtonProps): ReactElement {
   return (
     <button className={`btn ${className}`} type={type} onClick={onClick}>
       {children}

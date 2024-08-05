@@ -1,0 +1,15 @@
+.title {
+  color: var(--textColor);
+}
+.add-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.input-section {
+  /* border: 2px solid green; */
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}

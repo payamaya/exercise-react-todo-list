@@ -1,5 +1,5 @@
 .btn {
-  color: red;
+  color: var(--iconColor);
   background-color: green;
   outline: none;
   border: none;

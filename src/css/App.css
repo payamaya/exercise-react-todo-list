@@ -4,30 +4,8 @@
   flex-direction: column;
   width: 100%;
 }
-.title {
-  color: var(--textColor);
-}
-.para {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  width: 100px;
-  color: var(--textColor);
-  border-top: var(--borderColor) 2px solid;
-  border-bottom: var(--borderColor) 2px solid;
-}
+
 .add-icon {
   color: var(--borderColor);
   font-size: 6rem;
-}
-.add-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.input-section {
-  /* border: 2px solid green; */
-  display: flex;
-  flex-direction: column;
 }

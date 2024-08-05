@@ -1,4 +1,7 @@
-.input-element {
+.input {
+  margin-bottom: 0.4rem;
+}
+.input-section {
   display: flex;
   border: 2px solid var(--borderColor);
   margin: 0.2rem;
@@ -6,4 +9,5 @@
   border-radius: 4px;
   padding: 0.4rem;
   color: var(--textColor);
+  width: 100px;
 }

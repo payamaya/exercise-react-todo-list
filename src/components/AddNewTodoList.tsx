@@ -35,7 +35,7 @@ export function AddNewList({ addList }: AddListProps) {
     const newList: IAddList = {
       title: addTitle,
       description: addAbout,
-      timestamp: new Date().toISOString(), // Use ISO string for timestamp
+      timestamp: new Date().toLocaleDateString(), // Use ISO string for timestamp
     }
     addList(newList) // Call the addList function with newList
     console.log('submit', newList)
@@ -43,8 +43,8 @@ export function AddNewList({ addList }: AddListProps) {
   }
 
   return (
-    <section>
-      <h1 className='title'>This is the App component</h1>
+    <section className='add-todo'>
+      <h1 className='title'>Todo App</h1>
       <form className='add-list' onSubmit={handleSubmit}>
         <div className='input-section'>
           <Input
@@ -53,6 +53,7 @@ export function AddNewList({ addList }: AddListProps) {
             placeholder='Title...'
             onChange={handleInputTitle}
             value={addTitle}
+            // className={`input`}
           />
           <Input
             type='text'
@@ -60,21 +61,15 @@ export function AddNewList({ addList }: AddListProps) {
             placeholder='About...'
             onChange={handleInputAbout}
             value={addAbout}
+            // className={`input`}
           />
         </div>
         <Button
-          className='material-symbols-outlined btn'
+          className='material-symbols-outlined'
           type='submit'
           onClick={handleOnClick}
         >
           add_box
-        </Button>
-        <Button
-          className='material-symbols-outlined btn'
-          type='button'
-          onClick={handleDelete}
-        >
-          delete
         </Button>
       </form>
     </section>

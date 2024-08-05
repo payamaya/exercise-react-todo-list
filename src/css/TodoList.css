@@ -1,0 +1,18 @@
+.card-wrapper {
+  display: flex;
+  width: 100%;
+  border: 2px solid var(--borderColor);
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.para {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100px;
+  color: var(--textColor);
+  border-top: var(--borderColor) 2px solid;
+  border-bottom: var(--borderColor) 2px solid;
+}
