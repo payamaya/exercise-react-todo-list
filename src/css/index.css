@@ -65,3 +65,7 @@ input[type='checkbox'] {
   text-decoration-style: wavy;
   text-decoration-thickness: 2px;
 }
+.author {
+  display: flex;
+  align-items: center;
+}

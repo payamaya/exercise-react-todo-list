@@ -1,5 +1,7 @@
 .input {
   margin-bottom: 0.4rem;
+  display: flex;
+  flex-direction: column;
 }
 .input-section {
   display: flex;

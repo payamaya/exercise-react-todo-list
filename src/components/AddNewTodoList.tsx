@@ -54,6 +54,7 @@ export function AddNewList({ addList }: AddListProps) {
       <form className='add-list' onSubmit={handleSubmit}>
         <div className='input-section'>
           <Input
+            label='Author: '
             type='text'
             name='author'
             placeholder='Author...'
@@ -63,6 +64,7 @@ export function AddNewList({ addList }: AddListProps) {
             // className={`input`}
           />
           <Input
+            label='Title: '
             type='text'
             name='title'
             placeholder='Title...'

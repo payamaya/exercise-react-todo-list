@@ -59,12 +59,21 @@
   height: fit-content;
   padding-bottom: 1rem;
 }
-.description span {
+.description {
   word-wrap: break-word;
-  /* word-break: break-all; */
+  word-break: break-all;
 }
 .todo-card-text {
   display: flex;
   color: var(--textColor);
   flex-direction: column;
+}
+.time-container {
+  display: flex;
+  padding-right: 2rem;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

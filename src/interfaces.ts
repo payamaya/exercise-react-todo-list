@@ -17,5 +17,6 @@ export interface ITodoListCardProps {
   onDelete: () => void
   onUpdate: () => void
   isChecked: boolean
+  checkedTime: string | null
   onCheckboxChange: () => void
 }

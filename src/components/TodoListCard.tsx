@@ -8,28 +8,38 @@ export function TodoListCard({
   onDelete,
   onUpdate,
   isChecked,
+  checkedTime,
   onCheckboxChange,
 }: ITodoListCardProps): ReactElement {
   return (
     <section className='todo-card'>
       <div className='todo-card-content'>
         <div className={`todo-card-text ${isChecked ? 'checked' : ''}`}>
-          <div className='label-container'>
+          <div className='label-container author'>
             <label>Author: </label>
-            <span>{listCard.author}</span>
+            <h4>{listCard.author}</h4>
           </div>
-          <div className='label-container'>
+
+          <span className='label-container'>
             <label>Title: </label>
-            <span>{listCard.title}</span>
-          </div>
-          <div className='label-container description'>
+            {listCard.title}
+          </span>
+
+          <span className='label-container description'>
             <label>Description: </label>
-            <span>{listCard.description}</span>
-          </div>
-          <div className='label-container'>
+            {listCard.description}
+          </span>
+
+          <span className='label-container'>
             <label>Date: </label>
-            <span>{listCard.timestamp}</span>
-          </div>
+            {listCard.timestamp}
+          </span>
+          {isChecked && (
+            <div className='time-container Time'>
+              <label>Time: </label>
+              {checkedTime}
+            </div>
+          )}
         </div>
       </div>
       <div className='todo-icons-wrapper'>
