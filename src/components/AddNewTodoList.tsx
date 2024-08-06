@@ -53,6 +53,7 @@ export function AddNewList({ addList }: AddListProps) {
             placeholder='Title...'
             onChange={handleInputTitle}
             value={addTitle}
+            required={true}
             // className={`input`}
           />
           <Input
@@ -61,14 +62,11 @@ export function AddNewList({ addList }: AddListProps) {
             placeholder='About...'
             onChange={handleInputAbout}
             value={addAbout}
+            required={true}
             // className={`input`}
           />
         </div>
-        <Button
-          className='material-symbols-outlined'
-          type='submit'
-          onClick={handleOnClick}
-        >
+        <Button className='btn-add' type='submit' onClick={handleOnClick}>
           add_box
         </Button>
       </form>

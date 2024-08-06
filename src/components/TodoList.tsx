@@ -22,20 +22,20 @@ export function TodoList() {
   return (
     <>
       <AddNewList addList={addNewList} />
-      <section className='card-wrapper'>
-        {addNewLists.length > 0 ? (
-          addNewLists.map((newList, index) => (
+      {addNewLists.length > 0 ? (
+        <section className='card-wrapper'>
+          {addNewLists.map((newList, index) => (
             <TodoListCard
               key={index}
               listCard={newList}
               onDelete={() => handleDeleteList(index)}
               onUpdate={() => handleUpdateList(index, newList)}
             />
-          ))
-        ) : (
-          <p className='para'>No Tasks</p>
-        )}
-      </section>
+          ))}
+        </section>
+      ) : (
+        <p className='para'>No Tasks</p>
+      )}
     </>
   )
 }

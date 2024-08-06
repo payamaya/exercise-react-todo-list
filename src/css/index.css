@@ -40,3 +40,12 @@ body {
 li {
   list-style: none;
 }
+button {
+  cursor: pointer;
+}
+input {
+  cursor: pointer;
+}
+/* input[type='checkbox']:checked {
+  cursor: pointer;
+} */

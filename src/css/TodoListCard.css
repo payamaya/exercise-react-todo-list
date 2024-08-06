@@ -17,14 +17,26 @@
   flex: 1;
 }
 
-.todo-card-actions {
+.todo-icons-wrapper {
   display: flex;
   gap: 0.5rem;
 }
 
-.btn {
-  cursor: pointer;
+.btn-todo-list {
+  /* cursor: pointer; */
+  /* border: 2px solid var(--iconColor); */
   border: none;
+  box-shadow: var(--iconColor) 0px 0px 3px;
   background: none;
   font-size: 1.5rem;
+  color: var(--iconColor);
+  border-radius: 4px;
+  width: fit-content;
+  height: fit-content;
+}
+.todo-card-text {
+  color: var(--textColor);
+}
+input[type='checkbox']:checked {
+  text-decoration: line-through;
 }

@@ -5,6 +5,8 @@
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
+  width: fit-content;
+  padding: 0rem 1rem;
 }
 .para {
   display: flex;

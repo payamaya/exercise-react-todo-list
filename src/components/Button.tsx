@@ -14,7 +14,11 @@ export function Button({
   children,
 }: IButtonProps): ReactElement {
   return (
-    <button className={`btn ${className}`} type={type} onClick={onClick}>
+    <button
+      className={`material-symbols-outlined ${className}`}
+      type={type}
+      onClick={onClick}
+    >
       {children}
     </button>
   )

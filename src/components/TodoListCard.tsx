@@ -23,23 +23,24 @@ export function TodoListCard({
   return (
     <section className='todo-card'>
       <div className='todo-card-content'>
-        <Input
-          type='checkbox'
-          onChange={handleCheckbox}
-          checked={isChecked}
-          className={`checkbox`}
-        />
         <div className={`todo-card-text ${isChecked ? 'checked' : ''}`}>
           <h3>{listCard.title}</h3>
           <p>{listCard.description}</p>
           <span>{listCard.timestamp}</span>
         </div>
       </div>
-      <div className='todo-card-actions'>
-        <Button className='material-symbols-outlined' onClick={onUpdate}>
+      <div className='todo-'>
+        <Input
+          type='checkbox'
+          onChange={handleCheckbox}
+          checked={isChecked}
+          className={`checkbox`}
+          required={true}
+        />
+        <Button className='btn-todo-list' onClick={onUpdate}>
           edit
         </Button>
-        <Button className='material-symbols-outlined' onClick={onDelete}>
+        <Button className='btn-todo-list' onClick={onDelete}>
           delete
         </Button>
       </div>

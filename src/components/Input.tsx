@@ -9,7 +9,8 @@ interface IInputProps {
   name?: string
   id?: string
   checked?: boolean
-  className?: string // Add this to support checkbox checked state
+  className?: string
+  required: boolean
 }
 
 export function Input(props: IInputProps): ReactElement {
@@ -22,7 +23,9 @@ export function Input(props: IInputProps): ReactElement {
       onChange={props.onChange}
       name={props.name}
       id={props.id}
-      checked={props.checked} // Support for checkbox checked state
+      checked={props.checked}
+      required={props.required}
+      // Support for checkbox checked state
     />
   )
 }
