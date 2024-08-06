@@ -36,7 +36,7 @@ export function TodoListCard({
           </span>
           {isChecked && (
             <div className='time-container Time'>
-              <label>Time: </label>
+              <label>Completed at: </label>
               {checkedTime}
             </div>
           )}

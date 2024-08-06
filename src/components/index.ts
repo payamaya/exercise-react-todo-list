@@ -1,6 +1,7 @@
 export * from './App'
 export * from './AddNewTodoList'
 export * from './Button'
+export * from './Header'
 export * from './Input'
 export * from './TodoList'
 export * from './TodoListCard'
