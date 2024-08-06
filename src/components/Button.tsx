@@ -3,13 +3,13 @@ import { ReactElement, ReactNode, MouseEventHandler } from 'react'
 interface IButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>
   className: string
-  children: ReactNode
   type?: 'submit' | 'button'
+  children: ReactNode
 }
 
 export function Button({
-  className = '',
   onClick,
+  className = '',
   type = 'button',
   children,
 }: IButtonProps): ReactElement {

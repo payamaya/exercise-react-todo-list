@@ -43,9 +43,25 @@ li {
 button {
   cursor: pointer;
 }
+/* label {
+  padding-block: 1rem;
+} */
 input {
   cursor: pointer;
+  background-color: var(--textColor);
 }
-/* input[type='checkbox']:checked {
-  cursor: pointer;
-} */
+input[type='checkbox'] {
+  width: 1.4rem;
+  height: 1.4rem;
+  accent-color: var(--iconColor);
+  border: var(--textColor) 2px solid;
+}
+
+.checked h3,
+.checked p,
+.checked span {
+  text-decoration: line-through;
+  text-decoration-color: var(--iconColor);
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+}

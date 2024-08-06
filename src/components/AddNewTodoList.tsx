@@ -10,6 +10,7 @@ interface AddListProps {
 export function AddNewList({ addList }: AddListProps) {
   const [addTitle, setAddTitle] = useState<string>('')
   const [addAbout, setAddAbout] = useState<string>('')
+  const [addAuthor, setAddAuthor] = useState<string>('')
 
   const handleInputTitle: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setAddTitle(e.target.value)
@@ -18,10 +19,14 @@ export function AddNewList({ addList }: AddListProps) {
   const handleInputAbout: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setAddAbout(e.target.value)
   }
+  const handleInputAuthor: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setAddAuthor(e.target.value)
+  }
 
   const handleDelete = () => {
     setAddTitle('') // Clear the title input
     setAddAbout('') // Clear the about input
+    setAddAuthor('') // Clear the about input
     console.log('addTitle :>> ', addTitle)
     console.log('addAbout :>> ', addAbout)
   }
@@ -35,7 +40,8 @@ export function AddNewList({ addList }: AddListProps) {
     const newList: IAddList = {
       title: addTitle,
       description: addAbout,
-      timestamp: new Date().toLocaleDateString(), // Use ISO string for timestamp
+      timestamp: new Date().toLocaleDateString(),
+      author: addAuthor, // Use ISO string for timestamp
     }
     addList(newList) // Call the addList function with newList
     console.log('submit', newList)
@@ -49,6 +55,15 @@ export function AddNewList({ addList }: AddListProps) {
         <div className='input-section'>
           <Input
             type='text'
+            name='author'
+            placeholder='Author...'
+            onChange={handleInputAuthor}
+            value={addAuthor}
+            required={true}
+            // className={`input`}
+          />
+          <Input
+            type='text'
             name='title'
             placeholder='Title...'
             onChange={handleInputTitle}
@@ -57,7 +72,8 @@ export function AddNewList({ addList }: AddListProps) {
             // className={`input`}
           />
           <Input
-            type='text'
+            label='Description: '
+            type='textarea'
             name='about'
             placeholder='About...'
             onChange={handleInputAbout}

@@ -1,40 +1,43 @@
-import { ReactElement, useState } from 'react'
+import { ReactElement } from 'react'
 import { Input } from '.'
-import { IAddList } from '../interfaces'
+import { ITodoListCardProps } from '../interfaces'
 import { Button } from './Button'
-
-interface ITodoListCardProps {
-  listCard: IAddList
-  onDelete: () => void
-  onUpdate: () => void
-}
 
 export function TodoListCard({
   listCard,
   onDelete,
   onUpdate,
+  isChecked,
+  onCheckboxChange,
 }: ITodoListCardProps): ReactElement {
-  const [isChecked, setIsChecked] = useState<boolean>(false)
-
-  const handleCheckbox: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setIsChecked(e.target.checked)
-  }
-
   return (
     <section className='todo-card'>
       <div className='todo-card-content'>
         <div className={`todo-card-text ${isChecked ? 'checked' : ''}`}>
-          <h3>{listCard.title}</h3>
-          <p>{listCard.description}</p>
-          <span>{listCard.timestamp}</span>
+          <div className='label-container'>
+            <label>Author: </label>
+            <span>{listCard.author}</span>
+          </div>
+          <div className='label-container'>
+            <label>Title: </label>
+            <span>{listCard.title}</span>
+          </div>
+          <div className='label-container description'>
+            <label>Description: </label>
+            <span>{listCard.description}</span>
+          </div>
+          <div className='label-container'>
+            <label>Date: </label>
+            <span>{listCard.timestamp}</span>
+          </div>
         </div>
       </div>
-      <div className='todo-'>
+      <div className='todo-icons-wrapper'>
         <Input
           type='checkbox'
-          onChange={handleCheckbox}
+          onChange={onCheckboxChange}
           checked={isChecked}
-          className={`checkbox`}
+          className='checkbox'
           required={true}
         />
         <Button className='btn-todo-list' onClick={onUpdate}>

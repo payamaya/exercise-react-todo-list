@@ -1,11 +1,21 @@
+.add-todo {
+  padding: 0.8rem;
+  border: 2px solid var(--iconColor);
+  margin-block: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .title {
   color: var(--textColor);
 }
 .add-list {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: 1rem;
+  border: dotted 2px var(--bgColor);
 }
 .input-section {
   /* border: 2px solid green; */
