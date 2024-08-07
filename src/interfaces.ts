@@ -1,22 +1,40 @@
 import { ReactNode, MouseEventHandler } from 'react'
 
-export interface IAddList {
+export interface IList {
   title: string
   description: string
   timestamp: string
   author: string
 }
+export interface IAddListProps {
+  addList: (add: IList) => void
+}
+
 export interface IButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>
   className: string
   children: ReactNode
   type?: 'submit' | 'button'
 }
-export interface ITodoListCardProps {
-  listCard: IAddList
+
+export interface ITodoListCardProps extends IList {
+  isChecked?: boolean
+  checkedTime: string | null
   onDelete: () => void
   onUpdate: () => void
-  isChecked: boolean
-  checkedTime: string | null
   onCheckboxChange: () => void
+}
+
+export interface ICheckedState {
+  isChecked: boolean | undefined
+  checkedTime: string | null
+}
+
+export interface ITodoContext {
+  addNewLists: IList[]
+  checkedStates: ICheckedState[]
+  addNewList: (newList: IList) => void
+  handleDeleteList: (index: number) => void
+  handleUpdateList: (index: number, updatedList: IList) => void
+  handleCheckboxChange: (index: number) => void
 }

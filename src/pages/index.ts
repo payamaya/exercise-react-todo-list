@@ -1,2 +1,2 @@
-export * from './AddNewTodoListPage'
+export * from './AddTodoListPage'
 export * from './TodoListPage'
