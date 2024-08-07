@@ -4,7 +4,7 @@
   justify-content: space-between;
   background-color: var(--iconColor);
   color: var(--textColor);
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   width: 100%;
 
   position: fixed;
@@ -20,4 +20,7 @@
   color: var(--textColor);
   font-size: 1.5rem;
   text-decoration: none;
+}
+.logo {
+  width: 50px;
 }

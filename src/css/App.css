@@ -1,8 +1,10 @@
 .main-section {
   display: flex;
   align-items: center;
+  height: calc(100vh - 10vh);
   flex-direction: column;
   width: 100%;
+  justify-content: center;
 }
 
 .add-icon {

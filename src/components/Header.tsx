@@ -1,13 +1,15 @@
 import { ReactElement } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export function Header(): ReactElement {
   return (
     <header className='header'>
-      <nav>
-        <h1 className='logo'>Todo List Application</h1>
-        {/* <Link to={'/'}>add</Link>
-        <Link to={'/todo-list'}>All todo-list</Link> */}
+      <Link to={'/'}>
+        <img className='logo' src='../../public/logo.svg' />
+      </Link>
+      <nav className='links'>
+        <Link to='/'>Add new list</Link>
+        <Link to='/all-todo'>All Todo list</Link>
       </nav>
     </header>
   )

@@ -3,13 +3,14 @@ import {
   createRoutesFromElements,
   Route,
 } from 'react-router-dom'
-// import { AddNewList, App, TodoList } from './components'
-import { App, TodoList } from './components'
+import { App } from './components'
+import { AddTodoListPage, TodoListPage } from './pages'
+
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
-      {/* <Route index element={<AddNewList />} /> */}
-      <Route path='todo-list' element={<TodoList />} />
+      <Route index element={<AddTodoListPage />} />
+      <Route path='all-todo' element={<TodoListPage />} />
     </Route>
   )
 )

@@ -1,14 +1,17 @@
 import { ReactElement } from 'react'
-import { Input } from '.'
 import { ITodoListCardProps } from '../interfaces'
+import { Input } from './Input'
 import { Button } from './Button'
 
 export function TodoListCard({
-  listCard,
-  onDelete,
-  onUpdate,
+  title,
+  description,
+  timestamp,
+  author,
   isChecked,
   checkedTime,
+  onDelete,
+  onUpdate,
   onCheckboxChange,
 }: ITodoListCardProps): ReactElement {
   return (
@@ -17,26 +20,26 @@ export function TodoListCard({
         <div className={`todo-card-text ${isChecked ? 'checked' : ''}`}>
           <div className='label-container author'>
             <label>Author: </label>
-            <h4>{listCard.author}</h4>
+            <h4>{author}</h4>
           </div>
 
           <span className='label-container'>
             <label>Title: </label>
-            {listCard.title}
+            {title}
           </span>
 
           <span className='label-container description'>
             <label>Description: </label>
-            {listCard.description}
+            {description}
           </span>
 
           <span className='label-container'>
             <label>Date: </label>
-            {listCard.timestamp}
+            {timestamp}
           </span>
           {isChecked && (
             <div className='time-container Time'>
-              <label>Completed at: </label>
+              <label>Checked at: </label>
               {checkedTime}
             </div>
           )}
