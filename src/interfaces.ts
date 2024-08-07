@@ -32,7 +32,9 @@ export interface ICheckedState {
 
 export interface ITodoContext {
   addNewLists: IList[]
+  clearTask: () => void
   checkedStates: ICheckedState[]
+  deletedTaskCount: number
   addNewList: (newList: IList) => void
   handleDeleteList: (index: number) => void
   handleUpdateList: (index: number, updatedList: IList) => void

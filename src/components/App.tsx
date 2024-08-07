@@ -6,6 +6,7 @@ import { useState } from 'react'
 export function App() {
   const [addNewLists, setAddNewList] = useState<IList[]>([])
   const [checkedStates, setCheckedStates] = useState<ICheckedState[]>([])
+  const [deletedTaskCount, setDeletedTaskCount] = useState<number>(0)
 
   const addNewList = (newList: IList) => {
     setAddNewList([...addNewLists, newList])
@@ -21,6 +22,8 @@ export function App() {
 
     const updatedCheckedStates = checkedStates.filter((_, i) => i !== list)
     setCheckedStates(updatedCheckedStates)
+
+    setDeletedTaskCount(deletedTaskCount + 1)
   }
 
   const handleUpdateList = (list: number, updatedList: IList) => {
@@ -38,14 +41,20 @@ export function App() {
     }
     setCheckedStates(updatedCheckedStates)
   }
+  const clearTask = () => {
+    setAddNewList([])
+    setCheckedStates([])
+  }
 
   const todoContext: ITodoContext = {
     addNewLists,
-    addNewList,
     checkedStates,
+    deletedTaskCount,
+    addNewList,
+    clearTask,
     handleDeleteList,
-    handleCheckboxChange,
     handleUpdateList,
+    handleCheckboxChange,
   }
 
   return (

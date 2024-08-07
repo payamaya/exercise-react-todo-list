@@ -23,27 +23,31 @@ export function TodoListCard({
             <h4>{author}</h4>
           </div>
 
-          <span className='label-container'>
+          <div className='label-container'>
             <label>Title: </label>
-            {title}
-          </span>
+            <span>{title}</span>
+          </div>
 
-          <span className='label-container description'>
+          <div className='label-container description'>
             <label>Description: </label>
-            {description}
-          </span>
+            <span>{description}</span>
+          </div>
 
-          <span className='label-container'>
-            <label>Date: </label>
-            {timestamp}
-          </span>
-          {isChecked && (
+          {/* {isChecked && (
             <div className='time-container Time'>
               <label>Checked at: </label>
               {checkedTime}
             </div>
           )}
+          <span className='label-container'>
+            <label>Date: </label>
+            {timestamp}
+          </span> */}
         </div>
+        <span className='toggle-check'>
+          <label>{isChecked ? 'Checked at: ' : 'Date: '}</label>
+          {isChecked ? checkedTime : timestamp}
+        </span>
       </div>
       <div className='todo-icons-wrapper'>
         <Input

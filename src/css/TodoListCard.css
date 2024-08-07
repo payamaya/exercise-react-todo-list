@@ -40,6 +40,19 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+.author {
+  display: flex;
+  align-items: center;
+}
+.checked h3,
+.checked p,
+.checked span {
+  text-decoration: line-through;
+  text-decoration-color: var(--iconColor);
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+}
+
 .description label {
   height: fit-content;
   padding-bottom: 1rem;
@@ -52,6 +65,16 @@
   display: flex;
   color: var(--textColor);
   flex-direction: column;
+}
+.toggle-check {
+  display: flex;
+  padding-right: 2rem;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: var(--textColor);
 }
 .time-container {
   display: flex;

@@ -11,6 +11,7 @@ export function AddTodoListPage() {
   const [author, setAuthor] = useState<string>('')
   const { addNewList } = useTodoContext()
   const navigate = useNavigate()
+
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
     const newList: IList = {
@@ -29,7 +30,6 @@ export function AddTodoListPage() {
     setDescription('')
     setAuthor('')
   }
-
   return (
     <section className='add-todo'>
       <h1 className='title'>Todo App</h1>
