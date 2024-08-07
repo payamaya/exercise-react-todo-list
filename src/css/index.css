@@ -47,8 +47,13 @@ button {
 /* label {
   padding-block: 1rem;
 } */
-input {
+input,
+textarea {
   cursor: pointer;
+  outline: none;
+  border: none;
+  border: 2px solid var(--borderColor);
+  border-radius: 4px;
   background-color: var(--textColor);
 }
 input[type='checkbox'] {
