@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { IAddList } from '../interfaces'
-import { TodoListCard, AddNewList } from '.'
+import { TodoListCard } from '../components'
+import AddNewListPage from './AddNewTodoListPage'
 
 interface ICheckedState {
   isChecked: boolean
   checkedTime: string | null
 }
-export function TodoList() {
+export function TodoListPage() {
   const [addNewLists, setAddNewList] = useState<IAddList[]>([])
   const [checkedStates, setCheckedStates] = useState<ICheckedState[]>([])
 
@@ -44,7 +45,7 @@ export function TodoList() {
 
   return (
     <>
-      <AddNewList addList={addNewList} />
+      <AddNewListPage addList={addNewList} />
       {addNewLists.length > 0 ? (
         <section className='card-wrapper'>
           {addNewLists.map((newList, index) => (

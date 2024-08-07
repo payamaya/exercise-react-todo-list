@@ -1,5 +1,5 @@
 .add-todo {
-  margin-top: 7rem;
+  margin-top: 3rem;
   padding: 0.8rem;
   border: 2px solid var(--iconColor);
   margin-bottom: 1rem;
@@ -19,8 +19,14 @@
   border: dotted 2px var(--bgColor);
 }
 .input-section {
-  /* border: 2px solid green; */
   width: 300px;
   display: flex;
   flex-direction: column;
+}
+.btn-section {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 }

@@ -4,10 +4,12 @@ import { ReactElement } from 'react'
 export function Header(): ReactElement {
   return (
     <header className='header'>
-      <nav>
-        <h1 className='logo'>Todo List Application</h1>
-        {/* <Link to={'/'}>add</Link>
+      <h1 className='logo'>Todo List Application</h1>
+      {/* <Link to={'/'}>add</Link>
         <Link to={'/todo-list'}>All todo-list</Link> */}
+      <nav className='links'>
+        <a href='#'>Add new list</a>
+        <a href='#'>All todo list</a>
       </nav>
     </header>
   )

@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom'
-import { Header, TodoList } from '.'
-// import { Header } from '.'
+import { Header } from '.'
+import { TodoListPage } from '../pages'
 
 export function App() {
   return (
     <section className='main-section'>
       <Header />
-      <TodoList />
+      <TodoListPage />
       <Outlet />
     </section>
   )

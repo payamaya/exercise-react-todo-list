@@ -1,15 +1,16 @@
-/* .btn-add {
-  border: 2px solid var(--iconColor);
-  outline: none;
+.btn-todo-list {
+  display: flex;
   border: none;
+  box-shadow: var(--iconColor) 0px 0px 3px;
+  background: none;
+  font-size: 1.5rem;
+  color: var(--iconColor);
   border-radius: 4px;
   width: 1.4rem;
   height: 1.4rem;
-} */
-.btn-add {
-  color: var(--iconColor);
-  /* cursor: pointer; */
-  border: none;
-  background: none;
-  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.btn-todo-list:hover {
+  box-shadow: var(--iconColor) 0px 0px 5px;
 }

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import '../css/App.css'
 import { IAddList } from '../interfaces'
-import { Button, Input } from '.'
+import { Button, Input } from '../components'
 
 interface AddListProps {
   addList: (add: IAddList) => void
 }
 
-export function AddNewList({ addList }: AddListProps) {
+export function AddNewListPage({ addList }: AddListProps) {
   const [addTitle, setAddTitle] = useState<string>('')
   const [addAbout, setAddAbout] = useState<string>('')
   const [addAuthor, setAddAuthor] = useState<string>('')
@@ -84,12 +84,21 @@ export function AddNewList({ addList }: AddListProps) {
             // className={`input`}
           />
         </div>
-        <Button className='btn-add' type='submit' onClick={handleOnClick}>
-          add_box
-        </Button>
+        <section className='btn-section'>
+          <Button
+            className='btn-todo-list'
+            type='submit'
+            onClick={handleOnClick}
+          >
+            add_box
+          </Button>
+          <Button className='btn-todo-list' onClick={handleDelete}>
+            delete
+          </Button>
+        </section>
       </form>
     </section>
   )
 }
 
-export default AddNewList
+export default AddNewListPage
