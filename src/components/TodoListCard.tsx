@@ -32,17 +32,6 @@ export function TodoListCard({
             <label>Description: </label>
             <span>{description}</span>
           </div>
-
-          {/* {isChecked && (
-            <div className='time-container Time'>
-              <label>Checked at: </label>
-              {checkedTime}
-            </div>
-          )}
-          <span className='label-container'>
-            <label>Date: </label>
-            {timestamp}
-          </span> */}
         </div>
         <span className='toggle-check'>
           <label>{isChecked ? 'Checked at: ' : 'Date: '}</label>

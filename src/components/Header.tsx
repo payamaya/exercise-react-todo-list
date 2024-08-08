@@ -10,6 +10,7 @@ export function Header(): ReactElement {
       <nav className='links'>
         <Link to='/'>Add new list</Link>
         <Link to='/all-todo'>All Todo list</Link>
+        <Link to='/about-todo'>About Todo-list</Link>
       </nav>
     </header>
   )

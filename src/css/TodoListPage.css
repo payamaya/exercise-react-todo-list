@@ -1,3 +1,6 @@
+/* .todo-container {
+  display: flex;
+} */
 .todo-section p,
 .todo-section h1 {
   color: var(--textColor);

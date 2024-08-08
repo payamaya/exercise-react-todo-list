@@ -1,4 +1,4 @@
-import { ReactNode, MouseEventHandler } from 'react'
+// import { ReactNode, MouseEventHandler } from 'react'
 
 export interface IList {
   title: string
@@ -10,12 +10,12 @@ export interface IAddListProps {
   addList: (add: IList) => void
 }
 
-export interface IButtonProps {
-  onClick?: MouseEventHandler<HTMLButtonElement>
-  className: string
-  children: ReactNode
-  type?: 'submit' | 'button'
-}
+// export interface IButton {
+//   onClick?: MouseEventHandler<HTMLButtonElement>
+//   className: string
+//   children: ReactNode
+//   type?: 'submit' | 'button'
+// }
 
 export interface ITodoListCardProps extends IList {
   isChecked?: boolean
