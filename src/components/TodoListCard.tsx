@@ -1,7 +1,10 @@
-import { ReactElement } from 'react'
-import { ITodoListCardProps } from '../interfaces'
+import { ReactElement, useState } from 'react'
 import { Input } from './Input'
 import { Button } from './Button'
+import { EditForm } from './EditForm'
+
+import { IList, ITodoListCardProps } from '../interfaces'
+import { useTodoContext } from '../hooks'
 
 export function TodoListCard({
   title,
@@ -11,9 +14,23 @@ export function TodoListCard({
   isChecked,
   checkedTime,
   onDelete,
-  onUpdate,
   onCheckboxChange,
+  index,
 }: ITodoListCardProps): ReactElement {
+  const { handleUpdateList } = useTodoContext()
+  const [editing, setEditing] = useState<boolean>(false)
+
+  const handleEditClick = () => {
+    setEditing(true)
+  }
+  const handleSave = (updatedItem: IList) => {
+    handleUpdateList(index, updatedItem) // Update with correct index
+    setEditing(false)
+  }
+
+  const handleCancel = () => {
+    setEditing(false)
+  }
   return (
     <section className='todo-card'>
       <div className='todo-card-content'>
@@ -38,6 +55,7 @@ export function TodoListCard({
           {isChecked ? checkedTime : timestamp}
         </span>
       </div>
+
       <div className='todo-icons-wrapper'>
         <Input
           type='checkbox'
@@ -46,12 +64,21 @@ export function TodoListCard({
           className='checkbox'
           required={true}
         />
-        <Button className='btn-todo-list' onClick={onUpdate}>
+        <Button className='btn-todo-list' onClick={handleEditClick}>
           edit
         </Button>
         <Button className='btn-todo-list' onClick={onDelete}>
           delete
         </Button>
+      </div>
+      <div>
+        {editing !== null && editing && (
+          <EditForm
+            item={{ timestamp, title, author, description }}
+            onSave={handleSave}
+            onCancel={handleCancel}
+          />
+        )}
       </div>
     </section>
   )

@@ -23,6 +23,7 @@ export interface ITodoListCardProps extends IList {
   onDelete: () => void
   onUpdate: () => void
   onCheckboxChange: () => void
+  index: number
 }
 
 export interface ICheckedState {
@@ -39,4 +40,17 @@ export interface ITodoContext {
   handleDeleteList: (index: number) => void
   handleUpdateList: (index: number, updatedList: IList) => void
   handleCheckboxChange: (index: number) => void
+  sort: 'asc' | 'desc'
+}
+export interface IEditFormProps {
+  item: IList
+  onSave: (item: IList) => void
+  onCancel: (item: IList) => void
+  submitButtonText: string
+}
+
+export interface IFilterObject {
+  searchTerm: string
+  category: string[] // you can also use a type here that specifies which strings are allowed, e.g. "Category[]"
+  sort: 'asc' | 'desc'
 }

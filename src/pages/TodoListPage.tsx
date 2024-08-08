@@ -1,6 +1,9 @@
 // import { useState } from 'react'
+
 import { TodoListCard } from '../components/TodoListCard'
 import { useTodoContext } from '../hooks'
+// import { IList } from '../interfaces'
+
 // import { Button } from '../components'
 
 export function TodoListPage() {
@@ -24,9 +27,11 @@ export function TodoListPage() {
       <h1 className='todo-head'>Todo List</h1>
       {addNewLists.length > 0 ? (
         <section className='card-wrapper'>
+          {/* <button>Sort</button> */}
           {addNewLists.map((newList, index) => (
             <TodoListCard
               key={index}
+              index={index}
               title={newList.title}
               description={newList.description}
               timestamp={newList.timestamp}
