@@ -1,10 +1,6 @@
-// import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
 import { TodoListCard } from '../components/TodoListCard'
 import { useTodoContext } from '../hooks'
-// import { IList } from '../interfaces'
-
-// import { Button } from '../components'
 
 export function TodoListPage() {
   const {
@@ -15,20 +11,39 @@ export function TodoListPage() {
     handleCheckboxChange,
     // clearTask,
   } = useTodoContext()
-
-  // const [isSectionVisible, setIsSectionVisible] = useState(true)
-
-  // const handleClearTask = () => {
-  //   // clearTask()
-  //   setIsSectionVisible(!isSectionVisible)
-  // }
+  const [sortedLists, setSortedLists] = useState(addNewLists)
+  const [sortOption, setSortOption] = useState<'author' | 'timestamp'>('author')
+  useEffect(() => {
+    // Sort based on the selected option whenever it changes
+    const sorted = [...addNewLists].sort((a, b) => {
+      if (sortOption === 'author') {
+        if (a.author < b.author) return -1
+        if (a.author > b.author) return 1
+        return 0
+      } else {
+        return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      }
+    })
+    setSortedLists(sorted)
+  }, [addNewLists, sortOption])
+  const handleSortOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortOption(e.target.value as 'author' | 'timestamp')
+  }
   return (
     <section>
       <h1 className='todo-head'>Todo List</h1>
-      {addNewLists.length > 0 ? (
+      <div className='sort-options'>
+        <label htmlFor='sort'>Sort by:</label>
+        <select id='sort' value={sortOption} onChange={handleSortOptionChange}>
+          <option value='author'>Author</option>
+          <option value='timestamp'>Timestamp</option>
+        </select>
+      </div>
+      {/* <button onClick={handleSort}>Sort</button> */}
+      {sortedLists.length > 0 ? (
         <section className='card-wrapper'>
           {/* <button>Sort</button> */}
-          {addNewLists.map((newList, index) => (
+          {sortedLists.map((newList, index) => (
             <TodoListCard
               key={index}
               index={index}

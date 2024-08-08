@@ -1,81 +1,78 @@
-// import { FormEventHandler, useState } from 'react'
 import { FormEventHandler, useState } from 'react'
 import { IList } from '../interfaces'
-
 import { Input, Button } from '../components'
-import { useTodoContext } from '../hooks'
 
-interface EditFormProps {
-  item: IList
-  onSave: (item: IList) => void
-  onCancel: () => void
+interface TodoFormProps {
+  initialData?: IList
+  onCancel?: () => void // Corrected the typo from "onCancle" to "onCancel"
+  onSubmit: (item: IList) => void
+  buttonLabel: string // Label for the submit button
 }
-export function EditForm({ item, onSave, onCancel }: EditFormProps) {
-  const [title, setTitle] = useState<string>('')
-  const [description, setDescription] = useState<string>('')
-  const [author, setAuthor] = useState<string>('')
-  const { addNewList } = useTodoContext()
+
+export function EditForm({
+  initialData,
+  onSubmit,
+  onCancel, // Corrected
+  buttonLabel,
+}: TodoFormProps) {
+  const [title, setTitle] = useState<string>(initialData?.title || '')
+  const [description, setDescription] = useState<string>(
+    initialData?.description || ''
+  )
+  const [author, setAuthor] = useState<string>(initialData?.author || '')
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
-    const newList: IList = {
+    const newItem: IList = {
       title,
       description,
-      timestamp: new Date().toLocaleDateString(),
       author,
+      timestamp: initialData?.timestamp || new Date().toLocaleDateString(),
     }
-    addNewList(newList)
+    onSubmit(newItem)
   }
 
-  const handleSave = () => {
-    onSave({
-      ...item,
-      title,
-      description,
-      author,
-    })
-  }
   return (
-    <section>
-      <form className='add-list' onSubmit={handleSubmit}>
-        <div className='input-section'>
-          <Input
-            label='Author: '
-            type='text'
-            name='author'
-            placeholder='Author...'
-            onChange={(e) => setAuthor(e.target.value)}
-            value={author}
-            required={true}
-          />
-          <Input
-            label='Title: '
-            type='text'
-            name='title'
-            placeholder='Title...'
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
-            required={true}
-          />
-          <Input
-            label='Description: '
-            type='textarea'
-            name='description'
-            placeholder='Description...'
-            onChange={(e) => setDescription(e.target.value)}
-            value={description}
-            required={true}
-          />
-        </div>
-        <section className='btn-section'>
-          <Button className='btn-todo-list' type='submit' onClick={onCancel}>
-            cancel
+    <form className='todo-form' onSubmit={handleSubmit}>
+      <div className='input-section'>
+        <Input
+          label='Author: '
+          type='text'
+          name='author'
+          placeholder='Author...'
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+          required
+        />
+        <Input
+          label='Title: '
+          type='text'
+          name='title'
+          placeholder='Title...'
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+        <Input
+          label='Description: '
+          type='textarea'
+          name='description'
+          placeholder='Description...'
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+      </div>
+      <section className='btn-section'>
+        <Button className='btn-todo-list' type='submit'>
+          {buttonLabel}
+        </Button>
+        {onCancel && (
+          <Button className='btn-todo-list' type='button' onClick={onCancel}>
+            Cancel
           </Button>
-          <Button className='btn-todo-list' type='submit' onClick={handleSave}>
-            save
-          </Button>
-        </section>
-      </form>
-    </section>
+        )}
+      </section>
+    </form>
   )
 }
