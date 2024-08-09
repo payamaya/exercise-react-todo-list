@@ -19,9 +19,11 @@ export interface ITodoListCardProps extends IList {
   isChecked?: boolean
   checkedTime: string | null
   onDelete: () => void
-  onUpdate: () => void
   onCheckboxChange: () => void
   index: number
+  onDragStart: (event: React.DragEvent<HTMLDivElement>, index: number) => void
+  onDragOver: (event: React.DragEvent<HTMLDivElement>) => void
+  onDrop: (event: React.DragEvent<HTMLDivElement>, index: number) => void
 }
 
 export interface ICheckedState {
@@ -39,7 +41,8 @@ export interface ITodoContext {
   handleUpdateList: (index: number, updatedList: IList) => void
   handleCheckboxChange: (index: number) => void
   setCheckedStates: (states: ICheckedState[]) => void
-  // sort: 'asc' | 'desc'
+  sortOption: string
+  setEditing: boolean // Note this should be a function or a state, depending on your need
 }
 export interface IEditFormProps {
   item: IList

@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { TodoListCard } from '../components/TodoListCard'
 import { useTodoContext } from '../hooks'
+import { Select } from '../components'
 
 export function TodoListPage() {
   const {
     addNewLists,
     checkedStates,
     handleDeleteList,
-    handleUpdateList,
+    // handleUpdateList,
     handleCheckboxChange,
     setCheckedStates,
-    // clearTask,
   } = useTodoContext()
   // save in the localstorage
   const savedSortOption =
@@ -25,11 +25,11 @@ export function TodoListPage() {
     event: React.DragEvent<HTMLDivElement>,
     index: number
   ) => {
-    // event.preventDefault()
+    // can't drag when using event.preventDefault()
     setDraggedCard(index)
   }
   const onDragOver = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault() // This is necessary to allow the drop
+    event.preventDefault() // allow the drop
   }
   const onDrop = (
     event: React.DragEvent<HTMLDivElement>,
@@ -52,8 +52,6 @@ export function TodoListPage() {
     setCheckedStates(updatedCheckedStates)
     setSortedLists(updateLists)
     setDraggedCard(null)
-
-    // handleUpdateList(dropIndex, draggableItem)
   }
 
   useEffect(() => {
@@ -71,32 +69,20 @@ export function TodoListPage() {
     setSortedLists(sorted)
   }, [addNewLists, sortOption])
 
-  const handleSortOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSortOption(e.target.value as 'author' | 'timestamp')
+  const handleSortOptionChange = (newSortOption: 'author' | 'timestamp') => {
+    setSortOption(newSortOption)
   }
 
   return (
     <section>
       <h1 className='todo-head'>Todo List</h1>
-      {/* <button onClick={handleSort}>Sort</button> */}
       {sortedLists.length > 0 ? (
         <section className='card-container'>
-          <div className='sort-options'>
-            <label htmlFor='sort' className='sort-label'>
-              Sort by:
-            </label>
-            <select
-              className='sort'
-              id='sort'
-              value={sortOption}
-              onChange={handleSortOptionChange}
-            >
-              <option value='author'>Author</option>
-              <option value='timestamp'>Timestamp</option>
-            </select>
-          </div>
+          <Select
+            currentSortOption={sortOption}
+            onSortOptionChange={handleSortOptionChange}
+          />
           <section className='card-wrapper draggable'>
-            {/* <button>Sort</button> */}
             {sortedLists.map((newList, index) => (
               <TodoListCard
                 onDragStart={onDragStart}
@@ -111,7 +97,8 @@ export function TodoListPage() {
                 isChecked={checkedStates[index]?.isChecked}
                 checkedTime={checkedStates[index]?.checkedTime}
                 onDelete={() => handleDeleteList(index)}
-                onUpdate={() => handleUpdateList(index, newList)}
+                // onUpdate={() => handleUpdateList(index, newList)}
+
                 onCheckboxChange={() => handleCheckboxChange(index)}
               />
             ))}

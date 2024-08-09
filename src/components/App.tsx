@@ -56,6 +56,7 @@ export function App() {
     handleUpdateList,
     handleCheckboxChange,
     setCheckedStates,
+    sortOption: '',
   }
 
   return (
