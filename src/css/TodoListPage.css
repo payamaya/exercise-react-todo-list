@@ -63,3 +63,26 @@
 .todo-table th {
   background-color: var(--iconColor);
 }
+.draggable {
+  cursor: grabbing;
+}
+.sort-label {
+  color: var(--textColor);
+  padding-right: 1rem;
+}
+.sort {
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border: 2px solid var(--textColor);
+  border-radius: 4px;
+  background-color: var(--iconColor);
+}
+.sort option::selection {
+  background-color: #fff; /* Options background color */
+  color: #333;
+}
+.sort-options {
+  margin-bottom: 0.5rem;
+}

@@ -44,9 +44,9 @@ li {
 }
 a {
   text-decoration: none;
-  color: var(--textColor);
-  font-size: 1rem;
+  position: relative;
 }
+
 button {
   cursor: pointer;
 }

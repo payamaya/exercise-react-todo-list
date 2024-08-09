@@ -14,10 +14,17 @@ export function TodoListCard({
   onDelete,
   onCheckboxChange,
   index,
-}: ITodoListCardProps): ReactElement {
+  onDragStart,
+  onDragOver,
+  onDrop,
+}: ITodoListCardProps & {
+  onDragStart: (event: React.DragEvent<HTMLDivElement>, index: number) => void
+  onDragOver: (event: React.DragEvent<HTMLDivElement>) => void
+  onDrop: (event: React.DragEvent<HTMLDivElement>, index: number) => void
+}): ReactElement {
   const { handleUpdateList } = useTodoContext()
-  const [editing, setEditing] = useState<boolean>(false)
 
+  const [editing, setEditing] = useState<boolean>(false)
   const handleEditClick = () => {
     setEditing(true)
   }
@@ -35,7 +42,13 @@ export function TodoListCard({
     <section className='todo-card'>
       {!editing ? (
         <>
-          <div className='todo-card-content'>
+          <div
+            className='todo-card-content'
+            draggable
+            onDragStart={(e) => onDragStart(e, index)}
+            onDragOver={onDragOver}
+            onDrop={(e) => onDrop(e, index)}
+          >
             <div className={`todo-card-text ${isChecked ? 'checked' : ''}`}>
               <div className='label-container author'>
                 <label>Author: </label>

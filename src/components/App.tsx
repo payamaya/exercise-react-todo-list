@@ -55,6 +55,7 @@ export function App() {
     handleDeleteList,
     handleUpdateList,
     handleCheckboxChange,
+    setCheckedStates,
   }
 
   return (
