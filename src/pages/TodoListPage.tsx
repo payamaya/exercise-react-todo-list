@@ -8,10 +8,10 @@ export function TodoListPage() {
     addNewLists,
     checkedStates,
     handleDeleteList,
-    // handleUpdateList,
     handleCheckboxChange,
     setCheckedStates,
   } = useTodoContext()
+
   // save in the localstorage
   const savedSortOption =
     (localStorage.getItem('sortOption') as 'author' | 'timestamp') || 'author'
@@ -97,8 +97,6 @@ export function TodoListPage() {
                 isChecked={checkedStates[index]?.isChecked}
                 checkedTime={checkedStates[index]?.checkedTime}
                 onDelete={() => handleDeleteList(index)}
-                // onUpdate={() => handleUpdateList(index, newList)}
-
                 onCheckboxChange={() => handleCheckboxChange(index)}
               />
             ))}

@@ -1,0 +1,72 @@
+.todo-card-content {
+  flex: 1;
+  width: 100%;
+}
+
+.todo-icons-wrapper {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  gap: 0.8rem;
+  width: 100%;
+  align-items: baseline;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+}
+.label-container {
+  display: flex;
+  padding-right: 2rem;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.author {
+  display: flex;
+  align-items: center;
+}
+.checked h3,
+.checked p,
+.checked span {
+  text-decoration: line-through;
+  text-decoration-color: var(--iconColor);
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+}
+
+.description label {
+  height: fit-content;
+  padding-bottom: 1rem;
+}
+.description {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.todo-card-text {
+  display: flex;
+  color: var(--textColor);
+  flex-direction: column;
+}
+.toggle-check {
+  display: flex;
+  padding-right: 2rem;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: var(--textColor);
+}
+.time-container {
+  display: flex;
+  padding-right: 2rem;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

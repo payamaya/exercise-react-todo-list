@@ -34,7 +34,7 @@ export function TodoListCard({
   }
 
   return (
-    <section className='todo-card'>
+    <section className='todo-list_card'>
       {!editing ? (
         <Card
           title={title}
