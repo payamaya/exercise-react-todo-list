@@ -1,3 +1,19 @@
+/* .todo-container {
+  display: flex;
+} */
+.todo-section p,
+.todo-section h1 {
+  color: var(--textColor);
+}
+.todo-section {
+  padding-inline: 1rem;
+}
+.todo-head {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--textColor);
+}
 .card-wrapper {
   display: flex;
   width: 100%;
@@ -17,4 +33,56 @@
   color: var(--textColor);
   border-top: var(--borderColor) 2px solid;
   border-bottom: var(--borderColor) 2px solid;
+}
+.todo-para {
+  display: flex;
+  justify-content: space-around;
+}
+.para-right {
+  padding-left: 0.4rem;
+  display: flex;
+}
+.para-left {
+  padding-left: 0.4rem;
+  display: flex;
+}
+.todo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 1rem;
+}
+
+.todo-table th,
+.todo-table td {
+  border: 1px solid var(--borderColor);
+  padding: 8px;
+  text-align: left;
+  color: var(--textColor);
+}
+
+.todo-table th {
+  background-color: var(--iconColor);
+}
+.draggable {
+  cursor: grabbing;
+}
+.sort-label {
+  color: var(--textColor);
+  padding-right: 1rem;
+}
+.sort {
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border: 2px solid var(--textColor);
+  border-radius: 4px;
+  background-color: var(--iconColor);
+}
+.sort option::selection {
+  background-color: #fff; /* Options background color */
+  color: #333;
+}
+.sort-options {
+  margin-bottom: 0.5rem;
 }

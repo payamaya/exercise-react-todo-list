@@ -2,10 +2,10 @@
 */
 @import url('./App.css');
 @import url('./Button.css');
+@import url('./Card.css');
 @import url('./Input.css');
 @import url('./Header.css');
 @import url('./TodoListCard.css');
-
 @import url('./TodoListPage.css');
 @import url('./AddNewTodoListPage.css');
 
@@ -28,7 +28,7 @@
 html,
 body {
   margin: 0;
-  padding-top: 8vh;
+  padding-top: 6vh;
   box-sizing: border-box;
   height: 100vh;
   max-width: 100vw;
@@ -44,9 +44,9 @@ li {
 }
 a {
   text-decoration: none;
-  color: var(--textColor);
-  font-size: 1.4rem;
+  position: relative;
 }
+
 button {
   cursor: pointer;
 }
@@ -65,17 +65,4 @@ input[type='checkbox'] {
   height: 1.4rem;
   accent-color: var(--iconColor);
   border: var(--textColor) 2px solid;
-}
-
-.checked h3,
-.checked p,
-.checked span {
-  text-decoration: line-through;
-  text-decoration-color: var(--iconColor);
-  text-decoration-style: wavy;
-  text-decoration-thickness: 2px;
-}
-.author {
-  display: flex;
-  align-items: center;
 }
