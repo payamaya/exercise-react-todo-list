@@ -5,7 +5,7 @@ export function Header(): ReactElement {
   return (
     <header className='header'>
       <Link to={'/'}>
-        <img className='logo' src='/public/logo.png' />
+        <img className='logo' src='/logo.png' />
       </Link>
       <nav className='links'>
         <Link to='/'>Add new list</Link>
