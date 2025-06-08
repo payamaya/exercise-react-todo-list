@@ -27,6 +27,7 @@ export function TodoListPage() {
   ) => {
     // can't drag when using event.preventDefault()
     setDraggedCard(index)
+    console.log('event :>> ', event)
   }
   const onDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault() // allow the drop
