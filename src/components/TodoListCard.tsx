@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react'
+import { ReactElement, useEffect, useState } from 'react'
 import { EditForm, Card } from '../components'
 import { IList, ITodoListCardProps } from '../interfaces'
 import { useTodoContext } from '../hooks'
@@ -32,6 +32,36 @@ export function TodoListCard({
   const handleCancel = () => {
     setEditing(false)
   }
+  useEffect(() => {
+    const postData = {
+      title: title,
+      description: description,
+      author: author,
+      timestamp: new Date().toISOString(),
+      isChecked: isChecked,
+      checkedTime: new Date().toISOString(),
+    }
+
+    fetch('https://localhost:7005/api/todoitems', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postData),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`)
+        }
+        return res.json()
+      })
+      .then((data) => {
+        console.log('Posted data :>> ', data)
+      })
+      .catch((err) => {
+        console.error('Error posting data:', err)
+      })
+  }, [])
 
   return (
     <section className='todo-list_card'>

@@ -15,6 +15,7 @@ export function AddTodoListPage(): ReactElement {
     addNewList(newItem)
     navigate('/all-todo')
   }
+
   return (
     <section className='add-todo'>
       <h1 className='title'>Todo App</h1>
